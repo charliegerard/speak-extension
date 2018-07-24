@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Caption",
+  "description": "Live caption",
+  "version": "1",
+  "author": "Charlie Gerard",
+  "browser_action": {
+    "default_icon": "caption.png",
+    "default_title": "Live caption"
+  },
+  "background": {
+    // "scripts": [
+    //   "background.js"
+    // ],
+    // "persistent": true
+  },
+  "permissions": [
+    "https://*/*",
+    "http://*/*",
+    "tabs"
+  ],
+  "content_scripts": [{
+    "js": ["content.js"],
+    "matches": ["http://*/*", "https://*/*"]
+  }],
+  "permissions": [
+    "contextMenus"
+  ]
+}
