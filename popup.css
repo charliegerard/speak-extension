@@ -1,0 +1,67 @@
+body.live-caption-popup{
+  width: 300px;
+  height: 350px;
+  margin: 0;
+}
+
+img{
+  display: block;
+  margin: 50px auto;
+  width: 30%;
+}
+
+h2.live-caption-title{
+  font-family: Helvetica;
+  color: rgb(52, 51, 53);
+  text-align: center;
+  font-weight: 400;
+  margin: 0;
+}
+
+.content-container{
+  display: block;
+  margin: 0px auto;
+  width: 70%;
+  text-align: center;
+}
+
+.content-container p{
+  color: rgb(115, 116, 118);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.buttons-container{
+  display: flex;
+  width: 100%;
+  margin: 0px auto;
+  align-items: stretch;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+}
+
+button{
+  display: inline-block;
+  padding: 20px;
+  border: none;
+  box-shadow: none;
+  background: rgb(244, 244, 245);
+  color: white;
+  font-family: Helvetica, sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  width: 50%;
+  text-align: center;
+}
+
+.activation-button{
+  font-weight: 600;
+  color: rgb(115, 208, 115);
+  border-right: 1px solid white;
+}
+
+.deactivation-button{
+  font-weight: 600;
+  color: rgb(236, 140, 139);
+}

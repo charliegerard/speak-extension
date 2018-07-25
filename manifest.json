@@ -1,27 +1,29 @@
 {
   "manifest_version": 2,
-  "name": "Caption",
-  "description": "Live caption",
+  "name": "Speak",
+  "description": "Live speech recognition to provide captions for presentations",
   "version": "1",
   "author": "Charlie Gerard",
   "browser_action": {
     "default_icon": "caption.png",
-    "default_title": "Live caption"
+    "default_title": "Speak",
+    "default_popup": "popup.html"
   },
-  "background": {
-    // "scripts": [
-    //   "background.js"
-    // ],
-    // "persistent": true
-  },
+  // "background": {
+  //   "scripts": [
+  //     "background.js"
+  //   ]
+  //   "persistent": true
+  // },
   "permissions": [
     "https://*/*",
     "http://*/*",
-    "tabs"
+    "activeTab"
   ],
   "content_scripts": [{
     "js": ["content.js"],
-    "matches": ["http://*/*", "https://*/*"]
+    "matches": ["<all_urls>"],
+    "all_frames": true
   }],
   "permissions": [
     "contextMenus"

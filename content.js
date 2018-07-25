@@ -1,65 +1,56 @@
-var speechRecognitionStarted = false;
+var recognition, div;
+
+const init = () => {
+  div = document.createElement('div');
+  div.className.list = 'live-caption';
+
+  setDivStyle(div);
+
+  recognition = new webkitSpeechRecognition();
+  recognition.continuous = true;
+  recognition.interimResults = true;
+  recognition.lang = "en-AU";
+
+  recognition.onaudiostart = event => {
+    console.log("starting")
+  }
+
+  recognition.onresult = event => {
+    let last = event.results.length - 1;
+    let transcript = event.results[last][0].transcript;
+    // let transcript = event.results[0][0].transcript;
+    div.textContent = transcript;
+    document.body.appendChild(div);
+  }
+
+  recognition.onerror = event => {
+    console.log("error", event.error)
+  }
+
+  recognition.onspeechstart = event => {
+    console.log("speech started")
+  }
+
+  recognition.onsoundend = event => {
+    console.log("sound end")
+  }
+
+  recognition.onspeechend = event => {
+    console.log("speech end")
+  }
+
+  recognition.onaudioend = event => {
+    console.log("end")
+  }
+
+  recognition.onstop = event => {
+    console.log("stop");
+  }
+}
 
 const startTracking = () => {
-  if(!speechRecognitionStarted){
-    console.log('in context?')
-    // just place a div at top right
-    var div = document.createElement('div');
-    div.className.list = 'live-caption';
-
-    setDivStyle(div);
-
-    // var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
-
-    var recognition = new webkitSpeechRecognition();
-    recognition.continuous = true;
-    recognition.interimResults = true;
-    recognition.lang = "en-AU";
-
-    recognition.onaudiostart = event => {
-      console.log("starting")
-    }
-
-    recognition.onresult = event => {
-      // do something with event.results
-      console.log("result", event.results)
-      let last = event.results.length - 1;
-      let transcript = event.results[last][0].transcript;
-      // let transcript = event.results[0][0].transcript;
-      div.textContent = transcript;
-      document.body.appendChild(div);
-    }
-
-    recognition.onerror = event => {
-      console.log("error", event.error)
-    }
-
-    recognition.onspeechstart = event => {
-      console.log("speech started")
-    }
-
-    recognition.onsoundend = event => {
-      console.log("sound end")
-    }
-
-    recognition.onspeechend = event => {
-      console.log("speech end")
-      // recognition.stop()
-    }
-
-    recognition.onaudioend = event => {
-      console.log("end")
-      // recognition.start()
-    }
-
-    recognition.onstop = event => {
-      console.log("stop");
-    }
-
-    recognition.start()
-
-    speechRecognitionStarted = true
-  }
+  console.log("start");
+  recognition.start()
 }
 
 const setDivStyle = div => {
@@ -79,4 +70,20 @@ const setDivStyle = div => {
   div.style.fontFamily = "Arial";
 }
 
-// startTracking();
+const stopTracking = () => {
+  console.log("tracking stopped");
+  recognition.stop();
+  document.body.removeChild(div);
+}
+
+init();
+
+chrome.runtime.onMessage.addListener( function(request, sender, sendResponse) {
+  console.log("something happening from the extension", request.data);
+
+  if(request.data){
+    startTracking();
+  } else {
+    stopTracking();
+  }
+});
