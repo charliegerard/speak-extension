@@ -9,23 +9,15 @@
     "default_title": "Speak",
     "default_popup": "popup.html"
   },
-  // "background": {
-  //   "scripts": [
-  //     "background.js"
-  //   ]
-  //   "persistent": true
-  // },
   "permissions": [
-    "https://*/*",
-    "http://*/*",
-    "activeTab"
+    "activeTab",
+    "contextMenus"
+    // "http://*/*",
+    // "https://*/*"
   ],
   "content_scripts": [{
     "js": ["content.js"],
     "matches": ["<all_urls>"],
     "all_frames": true
-  }],
-  "permissions": [
-    "contextMenus"
-  ]
+  }]
 }

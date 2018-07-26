@@ -16,10 +16,16 @@ const init = () => {
   }
 
   recognition.onresult = event => {
+    //var count = document.getElementsByClassName('live-caption').innerHTML.split(' ').length;
+
     let last = event.results.length - 1;
-    let transcript = event.results[last][0].transcript;
+    let confidence = event.results[last][0].confidence;
+    let lastTranscript = event.results[last][0].transcript;
+    let firstTranscript = event.results[0][0].transcript;
     // let transcript = event.results[0][0].transcript;
-    div.textContent = transcript;
+    // let numWords = transcript.split(" ").length;
+
+    div.textContent = lastTranscript;
     document.body.appendChild(div);
   }
 
@@ -36,6 +42,7 @@ const init = () => {
   }
 
   recognition.onspeechend = event => {
+    stopTracking();
     console.log("speech end")
   }
 
@@ -44,6 +51,7 @@ const init = () => {
   }
 
   recognition.onstop = event => {
+    stopTracking()
     console.log("stop");
   }
 }
@@ -61,7 +69,7 @@ const setDivStyle = div => {
   div.style.position = 'absolute';
   div.style.color = 'white';
   div.style.padding = '10px';
-  div.style.fontSize = '16px';
+  div.style.fontSize = '30px';
   div.style.width = '50%';
   div.style.transform = 'translate(50%)';
   div.style.border = '2px solid white';
@@ -73,17 +81,17 @@ const setDivStyle = div => {
 const stopTracking = () => {
   console.log("tracking stopped");
   recognition.stop();
-  document.body.removeChild(div);
+  if(document.body.contains(div)){
+    document.body.removeChild(div);
+  }
 }
 
 init();
 
 chrome.runtime.onMessage.addListener( function(request, sender, sendResponse) {
-  console.log("something happening from the extension", request.data);
-
-  if(request.data){
+  if(request.data === "start"){
     startTracking();
-  } else {
+  } else if(request.data === "stop") {
     stopTracking();
   }
 });
