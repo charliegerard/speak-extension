@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Speak",
-  "description": "Live speech recognition to provide captions for presentations",
+  "description": "Speak lets you use speech-to-text to provide live captions for presentations",
   "version": "1",
   "author": "Charlie Gerard",
   "browser_action": {
@@ -9,6 +9,12 @@
     "default_title": "Speak",
     "default_popup": "popup.html"
   },
+  "icons": {
+    "16": "caption.png",
+    "48": "caption.png",
+    "128": "caption.png"
+  },
+  "minimum_chrome_version": "25",
   "permissions": [
     "activeTab",
     "contextMenus"
