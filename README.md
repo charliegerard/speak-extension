@@ -9,12 +9,20 @@ The main goal was to allow people to make their presentations more accessible fo
 
 ![screenshot of the interface](speak.png)
 
-Example:
+## Example:
 
+<video alt="demo video" controls src="./speak.mp4" width="auto"></video>
 
-How to install:
+## How to install:
 
 * Install the extension from the Chrome web store here.
 * Some websites might be blocking access to your microphone so make sure you are allowing access when using the extension.
+
+## To do:
+
+* Fix UI so only displays a certain number of words so it doesn't take too much space on the screen.
+* Support multi-language?
+* Automatic detection of spoken language?
+* Allow translation in other languages than english.
 
 
