@@ -1,15 +1,15 @@
-var recognition, div;
+var recognition, div, languageSelected;
 
 const init = () => {
   div = document.createElement('div');
-  div.className.list = 'live-caption';
+  div.className = 'live-caption';
 
   setDivStyle(div);
 
   recognition = new webkitSpeechRecognition();
   recognition.continuous = true;
   recognition.interimResults = true;
-  recognition.lang = "en-AU";
+  recognition.lang = languageSelected || "en-US";
 
   recognition.onaudiostart = event => {
     console.log("starting")
@@ -31,6 +31,13 @@ const init = () => {
 
   recognition.onerror = event => {
     console.log("error", event.error)
+    if(event.error === 'not-allowed'){
+      const errorMessage = "AudioCapture permission has been blocked because of a Feature Policy applied to the current document. See https://goo.gl/EuHzyv for more details.";
+
+      chrome.runtime.sendMessage({error: errorMessage}, function(response) {
+        console.log(response.farewell);
+      });
+    }
   }
 
   recognition.onspeechstart = event => {
@@ -93,5 +100,7 @@ chrome.runtime.onMessage.addListener( function(request, sender, sendResponse) {
     startTracking();
   } else if(request.data === "stop") {
     stopTracking();
+  } else {
+    languageSelected = request.data
   }
 });

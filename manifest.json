@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Speak",
   "description": "Speak lets you use speech-to-text to provide live captions for presentations",
-  "version": "1",
+  "version": "2",
   "author": "Charlie Gerard",
   "short_name": "Speak",
   "browser_action": {

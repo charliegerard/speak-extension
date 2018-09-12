@@ -20,9 +20,9 @@ The main goal was to allow people to make their presentations more accessible fo
 
 ## To do:
 
-* Fix UI so only displays a certain number of words so it doesn't take too much space on the screen.
-* Support multi-language?
-* Automatic detection of spoken language?
-* Allow translation in other languages than english.
+- [ ] Fix UI so only displays a certain number of words so it doesn't take too much space on the screen.
+- [x] Support multi-language?
+- [ ] Automatic detection of spoken language?
+- [ ] Allow translation in other languages than english.
 
 

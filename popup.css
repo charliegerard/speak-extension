@@ -1,31 +1,38 @@
+body{
+  font-family: Helvetica, sans-serif;
+}
+
 body.live-caption-popup{
   width: 300px;
-  height: 350px;
+  height: 400px;
   margin: 0;
 }
 
 img{
   display: block;
-  margin: 50px auto;
+  margin: 20px auto;
   width: 30%;
 }
 
 h2.live-caption-title{
-  font-family: Helvetica;
   color: rgb(52, 51, 53);
   text-align: center;
   font-weight: 400;
   margin: 0;
 }
 
-.content-container{
+.content-container, header{
   display: block;
   margin: 0px auto;
-  width: 70%;
+  width: 75%;
   text-align: center;
 }
 
-.content-container p{
+header{
+  margin-bottom: 2em;
+}
+
+header p{
   color: rgb(115, 116, 118);
   font-size: 14px;
   line-height: 1.5;
@@ -48,7 +55,6 @@ button{
   box-shadow: none;
   background: rgb(244, 244, 245);
   color: white;
-  font-family: Helvetica, sans-serif;
   font-size: 14px;
   cursor: pointer;
   width: 50%;
@@ -57,11 +63,28 @@ button{
 
 .activation-button{
   font-weight: 600;
-  color: rgb(115, 208, 115);
+  color:#035a03;
   border-right: 1px solid white;
 }
 
 .deactivation-button{
   font-weight: 600;
-  color: rgb(236, 140, 139);
+  color: #920101;
+}
+
+p.error-message:empty{
+  display: none;
+}
+
+p.error-message{
+  color:#fb2d2d;
+  font-style: italic;
+  font-size: 11px;
+  margin-top: 1em;
+}
+
+label{
+  color: rgb(52, 51, 53);
+  display: block;
+  margin-bottom: 1em;
 }
