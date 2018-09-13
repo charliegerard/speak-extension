@@ -4,7 +4,7 @@ body{
 
 body.live-caption-popup{
   width: 300px;
-  height: 400px;
+  height: 420px;
   margin: 0;
 }
 
@@ -87,4 +87,34 @@ label{
   color: rgb(52, 51, 53);
   display: block;
   margin-bottom: 1em;
+  font-size: 12px;
+}
+
+.language-select-element{
+  position: relative;
+  margin-bottom: 1em;
+}
+
+select{
+  border: 1px solid lightgrey;
+  font-size: 12px;
+  -webkit-appearance: none;
+  width: 100%;
+  padding: 1em;
+  border: 1px solid #ccc;
+}
+
+.language-select-element:after{
+  content: '<>';
+  font: 17px "Consolas", monospace;
+  color: #333;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  right: 11px;
+  top: 2.1em;
+  border-bottom: 1px solid #999;
+  position: absolute;
+  pointer-events: none;
 }
