@@ -7,7 +7,7 @@ The main goal was to allow people to make their presentations more accessible fo
 
 *As any speech recognition system, it is not working perfectly but hopefully it can still be somehow useful.*
 
-<img src="speak.png" alt="screenshot of the extension's interface" style="width: 200px; display: block; margin: 0 auto">
+<img src="speak.png" alt="screenshot of the extension's interface" style="width: 100px; display: block; margin: 0 auto; border: 1px solid grey">
 
 ## Example:
 
