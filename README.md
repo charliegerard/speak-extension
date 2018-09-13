@@ -9,9 +9,9 @@ The main goal is to allow people to make their presentations more accessible for
 
 <img src="speak.png" alt="screenshot of the extension's interface" style="display: block; margin: 0 auto; border: 1px solid grey">
 
-## How to install:
+# How to install:
 
-#### Dev version:
+### Dev version:
 
 * Clone this repo.
 * Go to the [Chrome extension interface](chrome://extensions/).
@@ -22,7 +22,7 @@ The main goal is to allow people to make their presentations more accessible for
 You should now see the icon of the extension in your browser extension bar.
 
 
-## How to use:
+# How to use:
 
 * Click on the extension in your browser's menu bar.
 * Select your spoken language.
@@ -38,11 +38,11 @@ You should now see the icon of the extension in your browser extension bar.
 **If the Speech Recognition API does not recognise what you are trying to say, it will default to English (US).**
 
 
-## Example:
+# Example:
 
 [Watch a video example](https://twitter.com/devdevcharlie/status/1024789897989607425)
 
-## Languages supported:
+# Languages supported:
 
 | Languages        | Region           | Language code  |
 | ------------- |:-------------:| -----:|
@@ -117,12 +117,12 @@ You should now see the icon of the extension in your browser extension bar.
 | ภาษาไทย | Default     |    th-TH |
 
 
-## Tech stack:
+# Tech stack:
 
 * HTML/CSS/JS
 * Web Speech Recognition API
 
-## Current known issues:
+# Current known issues:
 
 * The recognition is not always very accurate
 * Sometimes the tracking stops unexpectedly
@@ -130,10 +130,11 @@ You should now see the icon of the extension in your browser extension bar.
 
 ---
 
-## To do:
+# To do:
 
 - [ ] Fix UI so only displays a certain number of words so it doesn't take too much space on the screen.
 - [x] Support multi-language?
 - [ ] Allow translation in other languages than english with Google translate? (Might be too slow...)
+- [ ] Redesign
 
 

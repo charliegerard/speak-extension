@@ -16,17 +16,33 @@ const init = () => {
   }
 
   recognition.onresult = event => {
-    //var count = document.getElementsByClassName('live-caption').innerHTML.split(' ').length;
-
     let last = event.results.length - 1;
-    let confidence = event.results[last][0].confidence;
     let lastTranscript = event.results[last][0].transcript;
-    let firstTranscript = event.results[0][0].transcript;
-    // let transcript = event.results[0][0].transcript;
-    // let numWords = transcript.split(" ").length;
 
-    div.textContent = lastTranscript;
-    document.body.appendChild(div);
+    // div.textContent = lastTranscript;
+    // document.body.appendChild(div);
+
+
+    var interim_transcript = '';
+    var final_transcript = '';
+
+    for (var i = event.resultIndex; i < event.results.length; ++i) {
+        // Verify if the recognized text is the last with the isFinal property
+        if (event.results[i].isFinal) {
+            final_transcript += event.results[i][0].transcript;
+        } else {
+            interim_transcript += event.results[i][0].transcript;
+        }
+    }
+
+    // Choose which result may be useful for you
+
+    console.log("Interim: ", interim_transcript);
+
+    console.log("Final: ",final_transcript);
+
+    console.log("Simple: ", event.results[0][0].transcript);
+
   }
 
   recognition.onerror = event => {
