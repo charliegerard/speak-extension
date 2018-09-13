@@ -7,11 +7,13 @@ The main goal was to allow people to make their presentations more accessible fo
 
 *As any speech recognition system, it is not working perfectly but hopefully it can still be somehow useful.*
 
-![screenshot of the interface](speak.png)
+<img src="speak.png" alt="screenshot of the extension's interface" style="width: 200px; display: block; margin: 0 auto">
 
 ## Example:
 
-<video alt="demo video" controls src="./speak.mp4" width="auto"></video>
+<video width="auto" height="auto" controls alt="demo video">
+  <source src="speak-demo.mp4" type="video/mp4">
+</video>
 
 ## How to install:
 
