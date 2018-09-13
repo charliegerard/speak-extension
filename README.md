@@ -40,6 +40,8 @@ You should now see the icon of the extension in your browser extension bar.
 
 # Example:
 
+![Speak demo](speak.gif)
+
 [Watch a video example](https://twitter.com/devdevcharlie/status/1024789897989607425)
 
 # Languages supported:
