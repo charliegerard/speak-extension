@@ -19,10 +19,6 @@ const init = () => {
     let last = event.results.length - 1;
     let lastTranscript = event.results[last][0].transcript;
 
-    // div.textContent = lastTranscript;
-    // document.body.appendChild(div);
-
-
     var interim_transcript = '';
     var final_transcript = '';
 
@@ -35,14 +31,8 @@ const init = () => {
         }
     }
 
-    // Choose which result may be useful for you
-
-    console.log("Interim: ", interim_transcript);
-
-    console.log("Final: ",final_transcript);
-
-    console.log("Simple: ", event.results[0][0].transcript);
-
+    div.textContent = interim_transcript;
+    document.body.appendChild(div);
   }
 
   recognition.onerror = event => {
