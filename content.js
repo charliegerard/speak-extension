@@ -11,24 +11,19 @@ const init = () => {
   recognition.interimResults = true;
   recognition.lang = languageSelected || "en-US";
 
-  recognition.onaudiostart = event => {
-    console.log("starting")
-  }
-
   recognition.onresult = event => {
     let last = event.results.length - 1;
     let lastTranscript = event.results[last][0].transcript;
-
-    var interim_transcript = '';
-    var final_transcript = '';
+    let interim_transcript = '';
+    let final_transcript = '';
 
     for (var i = event.resultIndex; i < event.results.length; ++i) {
         // Verify if the recognized text is the last with the isFinal property
-        if (event.results[i].isFinal) {
-            final_transcript += event.results[i][0].transcript;
-        } else {
-            interim_transcript += event.results[i][0].transcript;
-        }
+      if (event.results[i].isFinal) {
+          final_transcript += event.results[i][0].transcript;
+      } else {
+          interim_transcript += event.results[i][0].transcript;
+      }
     }
 
     div.textContent = interim_transcript;
@@ -39,41 +34,18 @@ const init = () => {
     console.log("error", event.error)
     if(event.error === 'not-allowed'){
       const errorMessage = "AudioCapture permission has been blocked because of a Feature Policy applied to the current document. See https://goo.gl/EuHzyv for more details.";
-
-      chrome.runtime.sendMessage({error: errorMessage}, function(response) {
-        console.log(response.farewell);
-      });
+      chrome.runtime.sendMessage({error: errorMessage})
     }
   }
 
-  recognition.onspeechstart = event => {
-    console.log("speech started")
-  }
-
-  recognition.onsoundend = event => {
-    console.log("sound end")
-  }
-
-  recognition.onspeechend = event => {
-    stopTracking();
-    console.log("speech end")
-  }
-
-  recognition.onaudioend = event => {
-    console.log("end")
-  }
-
-  recognition.onstop = event => {
-    stopTracking()
-    console.log("stop");
-  }
+  recognition.onspeechstart = event => console.log("speech started");
+  recognition.onspeechend = event => stopTracking();
+  recognition.onstop = event => stopTracking();
 }
 
-const startTracking = () => {
-  console.log("start");
-  recognition.start()
-}
+const startTracking = () => recognition.start();
 
+// :'(
 const setDivStyle = div => {
   div.style.bottom = '10px';
   div.style.left = 0;
@@ -92,7 +64,6 @@ const setDivStyle = div => {
 }
 
 const stopTracking = () => {
-  console.log("tracking stopped");
   recognition.stop();
   if(document.body.contains(div)){
     document.body.removeChild(div);
@@ -107,6 +78,6 @@ chrome.runtime.onMessage.addListener( function(request, sender, sendResponse) {
   } else if(request.data === "stop") {
     stopTracking();
   } else {
-    languageSelected = request.data
+    languageSelected = request.data;
   }
 });

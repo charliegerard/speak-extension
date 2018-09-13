@@ -9,6 +9,14 @@ The main goal is to allow people to make their presentations more accessible for
 
 <img src="speak.png" alt="screenshot of the extension's interface" style="display: block; margin: 0 auto; border: 1px solid grey">
 
+# Current status:
+
+So far, seems to be working on:
+
+* [Reveal.js](https://revealjs.com/#/)
+* [MDX-deck](https://jxnblk.com/mdx-deck/#0)
+* [Spectacle](https://stack.formidable.com/spectacle/#/?_k=140t3u)
+
 # How to install:
 
 ### Dev version:
@@ -45,6 +53,8 @@ You should now see the icon of the extension in your browser extension bar.
 [Watch a video example](https://twitter.com/devdevcharlie/status/1024789897989607425)
 
 # Languages supported:
+
+*(I found this list in a tutorial so not 100% sure it's accurate)*
 
 | Languages        | Region           | Language code  |
 | ------------- |:-------------:| -----:|
@@ -122,7 +132,7 @@ You should now see the icon of the extension in your browser extension bar.
 # Tech stack:
 
 * HTML/CSS/JS
-* Web Speech Recognition API
+* Speech Recognition API
 
 # Current known issues:
 

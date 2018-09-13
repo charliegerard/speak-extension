@@ -118,3 +118,20 @@ select{
   position: absolute;
   pointer-events: none;
 }
+
+.live-caption{
+  bottom: '10px';
+  left: 0;
+  text-align: 'center';
+  background-color: 'rgba(0,0,0,0.8)';
+  position: 'absolute';
+  color: 'white';
+  padding: '10px';
+  font-size: '30px';
+  width: '50%';
+  transform: 'translate(50%)';
+  border: '2px solid white';
+  border-radius: "5px";
+  z-index: "10000";
+  font-family: "Arial";
+}
