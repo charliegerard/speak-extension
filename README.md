@@ -21,7 +21,7 @@ So far, seems to be working on:
 
 ### Dev version:
 
-* Clone this repo.
+* Download or clone this repo.
 * Go to the [Chrome extension interface](chrome://extensions/).
 * Activate Developer mode (top-right corner).
 * Click on the "Load unpacked" button in the menu bar.
