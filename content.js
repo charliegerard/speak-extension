@@ -1,4 +1,4 @@
-var recognition, div, languageSelected;
+var recognition, div, languageSelected, isStopButtonClicked = false;
 
 const init = () => {
   div = document.createElement('div');
@@ -7,7 +7,7 @@ const init = () => {
   setDivStyle(div);
 
   recognition = new webkitSpeechRecognition();
-  recognition.continuous = true;
+  recognition.continuous = false;
   recognition.interimResults = true;
   recognition.lang = languageSelected || "en-US";
 
@@ -40,12 +40,17 @@ const init = () => {
 
   recognition.onspeechstart = event => console.log("speech started");
   recognition.onspeechend = event => stopTracking();
-  recognition.onstop = event => stopTracking();
+  recognition.onend = function(event) {
+    if (isStopButtonClicked) {
+      stopTracking()
+    } else {
+      startTracking()
+    }
+  }
 }
 
 const startTracking = () => recognition.start();
 
-// :'(
 const setDivStyle = div => {
   div.style.bottom = '10px';
   div.style.left = 0;
@@ -74,8 +79,10 @@ init();
 
 chrome.runtime.onMessage.addListener( function(request, sender, sendResponse) {
   if(request.data === "start"){
+    isStopButtonClicked = false
     startTracking();
   } else if(request.data === "stop") {
+    isStopButtonClicked = true
     stopTracking();
   } else {
     languageSelected = request.data;
