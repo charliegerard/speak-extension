@@ -17,7 +17,14 @@ So far, seems to be working on:
 * [MDX-deck](https://jxnblk.com/mdx-deck/#0)
 * [Spectacle](https://stack.formidable.com/spectacle/#/?_k=140t3u)
 
+It does not work on Google Slides but they now have a caption functionality implemented.
+
 # How to install:
+
+### As a Chrome extension:
+
+It is in the process of being reviewed so I will add the link if it gets approved.
+
 
 ### Dev version:
 
@@ -137,14 +144,13 @@ You should now see the icon of the extension in your browser extension bar.
 # Current known issues:
 
 * The recognition is not always very accurate
-* Sometimes the tracking stops unexpectedly
 
 
 ---
 
 # To do:
 
-- [ ] Fix UI so only displays a certain number of words so it doesn't take too much space on the screen.
+- [x] Fix UI so only displays a certain number of words so it doesn't take too much space on the screen.
 - [x] Support multi-language?
 - [ ] Allow translation in other languages than english with Google translate? (Might be too slow...)
 - [ ] Redesign
