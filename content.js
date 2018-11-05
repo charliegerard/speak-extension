@@ -20,9 +20,9 @@ const init = () => {
     for (var i = event.resultIndex; i < event.results.length; ++i) {
         // Verify if the recognized text is the last with the isFinal property
       if (event.results[i].isFinal) {
-          final_transcript += event.results[i][0].transcript;
+        final_transcript += event.results[i][0].transcript;
       } else {
-          interim_transcript += event.results[i][0].transcript;
+        interim_transcript += event.results[i][0].transcript;
       }
     }
 
@@ -35,6 +35,8 @@ const init = () => {
     if(event.error === 'not-allowed'){
       const errorMessage = "AudioCapture permission has been blocked because of a Feature Policy applied to the current document. See https://goo.gl/EuHzyv for more details.";
       chrome.runtime.sendMessage({error: errorMessage})
+      isStopButtonClicked = true;
+      recognition.stop();
     }
   }
 
