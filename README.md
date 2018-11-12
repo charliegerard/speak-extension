@@ -23,7 +23,7 @@ It does not work on Google Slides but they now have a caption functionality impl
 
 ### As a Chrome extension:
 
-It is in the process of being reviewed so I will add the link if it gets approved.
+It has now been approved by the Google Chrome team so you can [install it from the chrome web store](https://chrome.google.com/webstore/detail/speak/kafbpkaodnkapgalobfodcpbioffcngc/related?authuser=1).
 
 
 ### Dev version:
