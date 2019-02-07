@@ -6,21 +6,21 @@
   "author": "Charlie Gerard",
   "short_name": "Speak",
   "browser_action": {
-    "default_icon": "caption.png",
+    "default_icon": "img/caption.png",
     "default_title": "Speak",
-    "default_popup": "popup.html"
+    "default_popup": "html/popup.html"
   },
   "icons": {
-    "16": "caption16.png",
-    "48": "caption48.png",
-    "128": "caption128.png"
+    "16": "img/caption16.png",
+    "48": "img/caption48.png",
+    "128": "img/caption128.png"
   },
   "minimum_chrome_version": "25",
   "permissions": [
     "activeTab"
   ],
   "content_scripts": [{
-    "js": ["content.js"],
+    "js": ["js/content.js"],
     "matches": ["<all_urls>"],
     "all_frames": true
   }]
